@@ -5,10 +5,13 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const outputDir = path.join(__dirname, 'dist');
 
 module.exports = {
-  entry: path.join(__dirname, 'src', 'index.tsx'),
+  entry: {
+    app: path.join(__dirname, 'src', 'index.tsx'),
+    ['app.worker']: path.join(__dirname, 'src', 'app.worker.ts')
+  },
   output: {
     path: outputDir,
-    filename: 'app.js'
+    filename: '[name].js'
   },
   resolve: {
     extensions: ['.js', '.ts', '.tsx']
